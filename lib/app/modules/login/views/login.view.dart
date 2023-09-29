@@ -1,6 +1,5 @@
 import 'package:bellboy_ride/app/constants/text.constants.dart';
 import 'package:bellboy_ride/app/theme/style.config.dart';
-import 'package:bellboy_ride/app/theme/theme.config.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -35,7 +34,7 @@ class LoginView extends GetView<LoginController> {
                     const Text(
                       'Log in',
                       style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.w800),
                     ),
                     const SizedBox(
                       height: 30,
@@ -53,17 +52,19 @@ class LoginView extends GetView<LoginController> {
                           // border: ,
                           suffixIcon: IconButton(
                               onPressed: () {
+                                emailChangeHandler('');
                                 emailController.clear();
                               },
                               icon: Container(
-                                  width: 23,
-                                  height: 23,
+                                  width: 20,
+                                  height: 20,
                                   decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: Colors.grey,
                                   ),
                                   child: const Icon(
                                     Icons.close,
+                                    size: 15,
                                     color: Colors.white,
                                   ))
                               // const Icon(Icons.circle),

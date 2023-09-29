@@ -32,9 +32,17 @@ class LoginController extends GetxController {
       String email = emailController.value.text;
       print('Entered email: $email');
       Get.showSnackbar(GetSnackBar(
-        title: 'Email: $email',
+        icon: const Icon(
+          Icons.check_circle_outline_rounded,
+          color: Colors.white,
+        ),
+        title: 'success',
         message: 'Email: $email',
-        duration: const Duration(seconds: 3),
+        backgroundColor: Colors.green,
+        forwardAnimationCurve: Curves.linear,
+        reverseAnimationCurve: Curves.linear,
+        animationDuration: const Duration(milliseconds: 200),
+        duration: const Duration(seconds: 2),
       ));
       emailFocusNode.value.unfocus();
     }
