@@ -1,3 +1,3 @@
 # bellboy_ride
 
-A new Flutter project.
+## Bellboy ride is a ride-sharing app that allows users to request and offer rides with ease. The app is developed using Flutter, a framework for building apps using Dart. The app uses Firebase, a platform that provides backend services, and integrates Google Maps API.
