@@ -1,6 +1,7 @@
 import 'package:bellboy_ride/app/constants/text.constants.dart';
 import 'package:bellboy_ride/app/theme/style.config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 
@@ -22,23 +23,23 @@ class LoginView extends GetView<LoginController> {
       return Scaffold(
         body: SafeArea(
             child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.0.r),
           child: Column(
             children: [
               SizedBox(
-                height: 300,
+                height: 300.h,
                 child: ListView(
                   children: [
-                    const SizedBox(
-                      height: 50,
+                    SizedBox(
+                      height: 50.h,
                     ),
-                    const Text(
-                      'Log in',
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.w800),
+                    Text(
+                      LOGIN,
+                      style: TextStyle(
+                          fontSize: 30.sp, fontWeight: FontWeight.w800),
                     ),
-                    const SizedBox(
-                      height: 30,
+                    SizedBox(
+                      height: 30.h,
                     ),
                     Form(
                       key: formKey,
@@ -57,15 +58,15 @@ class LoginView extends GetView<LoginController> {
                                   emailController.clear();
                                 },
                                 icon: Container(
-                                    width: 20,
-                                    height: 20,
+                                    width: 20.w,
+                                    height: 20.h,
                                     decoration: const BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: Colors.grey,
                                     ),
-                                    child: const Icon(
+                                    child: Icon(
                                       Icons.close,
-                                      size: 15,
+                                      size: 15.r,
                                       color: Colors.white,
                                     ))
                                 // const Icon(Icons.circle),
@@ -76,7 +77,7 @@ class LoginView extends GetView<LoginController> {
                           onEditingComplete: nextButtonHandler,
                           validator: validateCallback),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                   ],
                 ),
               ),
@@ -99,8 +100,8 @@ class LoginView extends GetView<LoginController> {
                       ),
 
                       // Space
-                      const SizedBox(
-                        height: 15,
+                      SizedBox(
+                        height: 15.h,
                       ),
 
                       // Next Button
@@ -110,7 +111,7 @@ class LoginView extends GetView<LoginController> {
                           style: nextButtonStyle(isEmailValid),
                           onPressed: nextButtonHandler,
                           child: Padding(
-                            padding: const EdgeInsets.all(15),
+                            padding: EdgeInsets.all(15.r),
                             child: Text(
                               isEmailValid ? NEXT : ENTER_EMAIL,
                               style: const TextStyle(color: Colors.white),

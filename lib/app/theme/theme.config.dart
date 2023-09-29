@@ -2,8 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-const COLOR_PRIMARY = Color.fromARGB(255, 99, 74, 5);
-const COLOR_ACCENT = Color.fromARGB(255, 131, 100, 15);
+const COLOR_PRIMARY = Color(0xFF8A2387);
 const MaterialColor customColor = MaterialColor(
   0xFF8A2387,
   <int, Color>{
@@ -19,7 +18,6 @@ const MaterialColor customColor = MaterialColor(
     900: Color(0xFF38006B),
   },
 );
-// const COLOR_DISABLED = Color.fromARGB(78, 7, 140, 145);
 
 ThemeData lightThemeData = ThemeData(
   brightness: Brightness.light,
@@ -38,5 +36,5 @@ ThemeData lightThemeData = ThemeData(
   ),
   primaryColor: COLOR_PRIMARY,
   floatingActionButtonTheme:
-      const FloatingActionButtonThemeData(backgroundColor: COLOR_ACCENT),
+      const FloatingActionButtonThemeData(backgroundColor: COLOR_PRIMARY),
 );

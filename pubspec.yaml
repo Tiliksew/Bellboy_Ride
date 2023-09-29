@@ -8,6 +8,8 @@ environment:
 dependencies: 
   cupertino_icons: ^1.0.2
   get: 4.6.6
+  url_strategy: 0.2.0
+  flutter_screenutil: 5.9.0
   flutter: 
     sdk: flutter
 
@@ -17,15 +19,15 @@ dev_dependencies:
     sdk: flutter
 
 flutter: 
-  uses-material-design: true
-  assets:
+  assets: 
     - assets/images/
-  fonts:
-  - family: Lato
-    fonts:
-      - asset: assets/fonts/Lato/Lato-Regular.ttf
-      - asset: assets/fonts/Lato/Lato-Bold.ttf
-      - asset: assets/fonts/Lato/Lato-Italic.ttf
+  fonts: 
+    - family: Lato
+      fonts: 
+        - asset: assets/fonts/Lato/Lato-Regular.ttf
+        - asset: assets/fonts/Lato/Lato-Bold.ttf
+        - asset: assets/fonts/Lato/Lato-Italic.ttf
+  uses-material-design: true
 
 get_cli: 
   separator: .

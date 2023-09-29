@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 
@@ -23,8 +24,8 @@ class SplashView extends GetView<SplashController> {
               child: Image.asset("assets/images/logo.png"),
             ),
             SizedBox(
-              width: 30,
-              height: 30,
+              width: 30.r,
+              height: 30.r,
               child: CircularProgressIndicator(
                 color: Colors.primaries.first,
               ),

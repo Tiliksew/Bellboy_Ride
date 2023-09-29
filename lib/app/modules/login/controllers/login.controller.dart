@@ -1,10 +1,11 @@
-// ignore_for_file: avoid_print, unnecessary_overrides
+// ignore_for_file: unnecessary_overrides
 
+import 'package:bellboy_ride/app/routes/app_pages.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
-  final count = 0.obs;
   var isEmailValid = false.obs;
   var formKey = GlobalKey<FormState>().obs;
   var emailController = TextEditingController().obs;
@@ -23,14 +24,18 @@ class LoginController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+    emailController.value.dispose();
+    emailFocusNode.value.dispose();
   }
-
-  void increment() => count.value++;
 
   loginHandler() {
     if (formKey.value.currentState!.validate()) {
       String email = emailController.value.text;
-      print('Entered email: $email');
+
+      if (kDebugMode) {
+        print('Entered email: $email');
+      }
+
       Get.showSnackbar(GetSnackBar(
         icon: const Icon(
           Icons.check_circle_outline_rounded,
@@ -44,37 +49,53 @@ class LoginController extends GetxController {
         animationDuration: const Duration(milliseconds: 200),
         duration: const Duration(seconds: 2),
       ));
+      Get.offAllNamed(Routes.HOME);
       emailFocusNode.value.unfocus();
     }
   }
 
-  emailChangeHandler(email) {
-    print('called with email: $email');
-    emailController.value.text = email;
-    if (validateEmail(email) && emailController.value.text.isEmail) {
-      isEmailValid(true);
-    } else {
+  void emailChangeHandler(email) {
+    try {
+      if (kDebugMode) {
+        print('called with email: $email');
+      }
+
+      emailController.value.text = email;
+      if (validateEmail(email) && emailController.value.text.isEmail) {
+        isEmailValid(true);
+      } else {
+        isEmailValid(false);
+      }
+    } catch (e) {
       isEmailValid(false);
     }
   }
 
   bool validateEmail(String email) {
-    // Regular expression pattern for email validation
-    const pattern = r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$';
-    final regex = RegExp(pattern);
+    try {
+      // Regular expression pattern for email validation
+      const pattern = r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$';
+
+      final regex = RegExp(pattern);
+      return regex.hasMatch(email);
+    } catch (e) {
+      return false;
+    }
 
     // Check if the email matches the pattern
-    print("inside valid email ${regex.hasMatch(email)}");
-    return regex.hasMatch(email);
   }
 
   String? validateCallback(value) {
-    if (value!.isEmpty) {
-      return 'Please enter your email';
+    try {
+      if (value!.isEmpty) {
+        return 'Please enter your email';
+      }
+      if (!value.contains('@')) {
+        return 'Please enter a valid email address';
+      }
+      return null;
+    } catch (e) {
+      return null;
     }
-    if (!value.contains('@')) {
-      return 'Please enter a valid email address';
-    }
-    return null;
   }
 }
