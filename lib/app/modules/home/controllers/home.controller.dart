@@ -3,10 +3,11 @@
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  final count = 0.obs;
+  var isLoading = false.obs;
   @override
   void onInit() {
     super.onInit();
+    checkingApiRequest();
   }
 
   @override
@@ -19,5 +20,9 @@ class HomeController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  void checkingApiRequest() async {
+    isLoading(true);
+    await Future.delayed(const Duration(seconds: 3), () {});
+    isLoading(false);
+  }
 }

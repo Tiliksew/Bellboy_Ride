@@ -6,3 +6,7 @@ const FIND_EMAIL = "Find e-mail";
 const FIND_PASSWORD = "Find password";
 const EMAIL = "E-mail";
 const LOGIN = "Log in";
+const WELCOME = "Welcome to Bellboy For Rider";
+const HOME = "Home";
+
+const LOGO_IMAGE_LINK = "assets/images/logo.png";

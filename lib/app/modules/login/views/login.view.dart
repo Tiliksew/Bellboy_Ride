@@ -17,8 +17,10 @@ class LoginView extends GetView<LoginController> {
       var emailFocusNode = controller.emailFocusNode.value;
       var emailController = controller.emailController.value;
       var formKey = controller.formKey.value;
+      var isLoading = controller.isLoading.value;
+
       var emailChangeHandler = controller.emailChangeHandler;
-      var validateCallback = controller.validateCallback;
+      var validateCallback = controller.formValidateCallback;
       var nextButtonHandler = isEmailValid ? () => loginHandler() : null;
       return Scaffold(
         body: SafeArea(

@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 
 class LoginController extends GetxController {
   var isEmailValid = false.obs;
+  var isLoading = false.obs;
   var formKey = GlobalKey<FormState>().obs;
   var emailController = TextEditingController().obs;
   var emailFocusNode = FocusNode().obs;
@@ -28,7 +29,7 @@ class LoginController extends GetxController {
     emailFocusNode.value.dispose();
   }
 
-  loginHandler() {
+  void loginHandler() async {
     if (formKey.value.currentState!.validate()) {
       String email = emailController.value.text;
 
@@ -49,8 +50,8 @@ class LoginController extends GetxController {
         animationDuration: const Duration(milliseconds: 200),
         duration: const Duration(seconds: 2),
       ));
-      Get.offAllNamed(Routes.HOME);
       emailFocusNode.value.unfocus();
+      Get.offAllNamed(Routes.HOME);
     }
   }
 
@@ -85,7 +86,7 @@ class LoginController extends GetxController {
     // Check if the email matches the pattern
   }
 
-  String? validateCallback(value) {
+  String? formValidateCallback(value) {
     try {
       if (value!.isEmpty) {
         return 'Please enter your email';

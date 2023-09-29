@@ -1,3 +1,4 @@
+import 'package:bellboy_ride/app/constants/text.constants.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,7 +22,7 @@ class SplashView extends GetView<SplashController> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              child: Image.asset("assets/images/logo.png"),
+              child: Image.asset(LOGO_IMAGE_LINK),
             ),
             SizedBox(
               width: 30.r,
