@@ -17,7 +17,8 @@ class LoginView extends GetView<LoginController> {
       var emailController = controller.emailController.value;
       var formKey = controller.formKey.value;
       var emailChangeHandler = controller.emailChangeHandler;
-
+      var validateCallback = controller.validateCallback;
+      var nextButtonHandler = isEmailValid ? () => loginHandler() : null;
       return Scaffold(
         body: SafeArea(
             child: Padding(
@@ -42,51 +43,38 @@ class LoginView extends GetView<LoginController> {
                     Form(
                       key: formKey,
                       child: TextFormField(
-                        controller: emailController,
-                        focusNode: emailFocusNode,
-                        autofocus: true,
-                        textInputAction: TextInputAction.next,
-                        decoration: InputDecoration(
-                          labelText: EMAIL,
-                          // labelStyle: ,
-                          // border: ,
-                          suffixIcon: IconButton(
-                              onPressed: () {
-                                emailChangeHandler('');
-                                emailController.clear();
-                              },
-                              icon: Container(
-                                  width: 20,
-                                  height: 20,
-                                  decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.grey,
-                                  ),
-                                  child: const Icon(
-                                    Icons.close,
-                                    size: 15,
-                                    color: Colors.white,
-                                  ))
-                              // const Icon(Icons.circle),
-                              ),
-                        ),
-                        keyboardType: TextInputType.emailAddress,
-                        onChanged: emailChangeHandler,
-                        onEditingComplete: isEmailValid
-                            ? () {
-                                loginHandler();
-                              }
-                            : null,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please enter your email';
-                          }
-                          if (!value.contains('@')) {
-                            return 'Please enter a valid email address';
-                          }
-                          return null;
-                        },
-                      ),
+                          controller: emailController,
+                          focusNode: emailFocusNode,
+                          autofocus: true,
+                          textInputAction: TextInputAction.next,
+                          decoration: InputDecoration(
+                            labelText: EMAIL,
+                            // labelStyle: ,
+                            // border: ,
+                            suffixIcon: IconButton(
+                                onPressed: () {
+                                  emailChangeHandler('');
+                                  emailController.clear();
+                                },
+                                icon: Container(
+                                    width: 20,
+                                    height: 20,
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.grey,
+                                    ),
+                                    child: const Icon(
+                                      Icons.close,
+                                      size: 15,
+                                      color: Colors.white,
+                                    ))
+                                // const Icon(Icons.circle),
+                                ),
+                          ),
+                          keyboardType: TextInputType.emailAddress,
+                          onChanged: emailChangeHandler,
+                          onEditingComplete: nextButtonHandler,
+                          validator: validateCallback),
                     ),
                     const SizedBox(height: 20),
                   ],
@@ -120,7 +108,7 @@ class LoginView extends GetView<LoginController> {
                         width: Get.width,
                         child: ElevatedButton(
                           style: nextButtonStyle(isEmailValid),
-                          onPressed: isEmailValid ? loginHandler : null,
+                          onPressed: nextButtonHandler,
                           child: Padding(
                             padding: const EdgeInsets.all(15),
                             child: Text(

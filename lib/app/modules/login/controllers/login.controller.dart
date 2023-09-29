@@ -67,4 +67,14 @@ class LoginController extends GetxController {
     print("inside valid email ${regex.hasMatch(email)}");
     return regex.hasMatch(email);
   }
+
+  String? validateCallback(value) {
+    if (value!.isEmpty) {
+      return 'Please enter your email';
+    }
+    if (!value.contains('@')) {
+      return 'Please enter a valid email address';
+    }
+    return null;
+  }
 }
