@@ -9,7 +9,7 @@ class Am {
         translation.findEmail: 'ኢ-ሜይልዎን ይፈልጉ',
         translation.findPassword: 'የይለፍ ቃልዎን ይፈልጉ',
         translation.enterEmail: 'ኢ-ሜይልዎን ያስገቡ',
-        translation.next: 'ግባ',
+        translation.next: 'ይቀጥሉ',
         translation.success: 'ተሳክቷል',
         translation.loggedInAs: 'የገቡበት ኢ-ሜይል',
         translation.language: "አማ"

@@ -2,7 +2,7 @@ import '../translation_keys.dart' as translation;
 
 class En {
   Map<String, String> get messages => {
-        translation.title: 'Title',
+        translation.title: 'Bellboy Ride',
         translation.welcome: 'Welcome to Bellboy For Rider',
         translation.login: 'Log in',
         translation.email: 'E-mail',
