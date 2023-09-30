@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../translations/translation_keys.dart' as keys;
+
 class LoginController extends GetxController {
   var isEmailValid = false.obs;
   var isLoading = false.obs;
@@ -42,10 +44,10 @@ class LoginController extends GetxController {
           Icons.check_circle_outline_rounded,
           color: Colors.white,
         ),
-        title: 'success',
+        title: keys.success.tr,
         snackStyle: SnackStyle.GROUNDED,
         padding: const EdgeInsets.all(5),
-        message: 'Logged in as $email',
+        message: '${keys.loggedInAs.tr} - $email',
         // backgroundColor: const Color(0xFF8A2387),
         backgroundColor: const Color(0xFF000000),
         forwardAnimationCurve: Curves.linear,
