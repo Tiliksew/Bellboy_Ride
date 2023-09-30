@@ -8,8 +8,10 @@ class En {
         translation.email: 'E-mail',
         translation.findEmail: 'Find e-mail',
         translation.findPassword: 'Find password',
+        translation.enterEmail: 'Enter your email address',
         translation.next: 'Next',
         translation.success: 'Success',
-        translation.loggedInAs: 'Logged in as'
+        translation.loggedInAs: 'Logged in as',
+        translation.language: "EN"
       };
 }

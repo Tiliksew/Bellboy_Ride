@@ -11,6 +11,7 @@ class Am {
         translation.enterEmail: 'ኢ-ሜይልዎን ያስገቡ',
         translation.next: 'ግባ',
         translation.success: 'ተሳክቷል',
-        translation.loggedInAs: 'የገቡበት ኢ-ሜይል'
+        translation.loggedInAs: 'የገቡበት ኢ-ሜይል',
+        translation.language: "አማ"
       };
 }

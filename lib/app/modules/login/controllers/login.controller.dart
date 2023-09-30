@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../translations/translation_keys.dart' as keys;
+import '../../../helpers/utils.dart' as helpers;
 
 class LoginController extends GetxController {
   var isEmailValid = false.obs;
@@ -64,12 +65,12 @@ class LoginController extends GetxController {
 
   void emailChangeHandler(email) {
     try {
-      if (kDebugMode) {
-        print('called with email: $email');
-      }
-
       emailController.value.text = email;
-      if (validateEmail(email) && emailController.value.text.isEmail) {
+
+      // We can use the getx internal method to validate the email
+      // using  [ emailController.value.text.isEmail ]
+
+      if (helpers.validateEmail(email)) {
         isEmailValid(true);
       } else {
         isEmailValid(false);
@@ -79,31 +80,19 @@ class LoginController extends GetxController {
     }
   }
 
-  bool validateEmail(String email) {
-    try {
-      // Regular expression pattern for email validation
-      const pattern = r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$';
-
-      final regex = RegExp(pattern);
-      return regex.hasMatch(email);
-    } catch (e) {
-      return false;
-    }
-
-    // Check if the email matches the pattern
-  }
-
   String? formValidateCallback(value) {
     try {
-      if (value!.isEmpty) {
-        return 'Please enter your email';
-      }
-      if (!value.contains('@')) {
-        return 'Please enter a valid email address';
-      }
-      return null;
+      return helpers.formValidateCallback(value);
     } catch (e) {
       return null;
+    }
+  }
+
+  void toggleLanguage() {
+    if (Get.locale!.languageCode == 'en') {
+      Get.updateLocale(const Locale('am'));
+    } else {
+      Get.updateLocale(const Locale('en')); // Switch to English
     }
   }
 }

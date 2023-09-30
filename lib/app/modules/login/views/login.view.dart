@@ -12,14 +12,19 @@ class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
+      // Controller Variables
       var isEmailValid = controller.isEmailValid.isTrue;
-      var loginHandler = controller.loginHandler;
       var emailFocusNode = controller.emailFocusNode.value;
       var emailController = controller.emailController.value;
       var formKey = controller.formKey.value;
+
+      // Controller methods
       var emailChangeHandler = controller.emailChangeHandler;
+      var loginHandler = controller.loginHandler;
       var validateCallback = controller.formValidateCallback;
       var nextButtonHandler = isEmailValid ? () => loginHandler() : null;
+      var toggleLanguage = controller.toggleLanguage;
+
       return Scaffold(
         resizeToAvoidBottomInset: false,
         body: SafeArea(
@@ -34,10 +39,22 @@ class LoginView extends GetView<LoginController> {
                     SizedBox(
                       height: 50.h,
                     ),
-                    Text(
-                      keys.login.tr,
-                      style: TextStyle(
-                          fontSize: 30.sp, fontWeight: FontWeight.w800),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          keys.login.tr,
+                          style: TextStyle(
+                              fontSize: 30.sp, fontWeight: FontWeight.w800),
+                        ),
+                        TextButton(
+                          onPressed: toggleLanguage,
+                          child: Text(
+                            keys.language.tr,
+                            style: const TextStyle(fontWeight: FontWeight.w700),
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: 30.h,

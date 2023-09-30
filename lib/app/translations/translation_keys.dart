@@ -8,3 +8,4 @@ const enterEmail = 'enterEmail';
 const next = 'next';
 const success = 'success';
 const loggedInAs = 'loggedInAs';
+const language = 'language';
