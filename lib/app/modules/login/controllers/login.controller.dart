@@ -14,10 +14,12 @@ class LoginController extends GetxController {
   var formKey = GlobalKey<FormState>().obs;
   var emailController = TextEditingController().obs;
   var emailFocusNode = FocusNode().obs;
+  var isDarkMode = false.obs;
 
   @override
   void onInit() {
     super.onInit();
+    initThemeMode();
   }
 
   @override
@@ -94,5 +96,16 @@ class LoginController extends GetxController {
     } else {
       Get.updateLocale(const Locale('en')); // Switch to English
     }
+  }
+
+  void toggleTheme() {
+    Get.changeThemeMode(
+      Get.isDarkMode ? ThemeMode.light : ThemeMode.dark,
+    );
+    Get.isDarkMode ? isDarkMode(true) : isDarkMode(false);
+  }
+
+  void initThemeMode() {
+    Get.isDarkMode ? isDarkMode(true) : isDarkMode(false);
   }
 }

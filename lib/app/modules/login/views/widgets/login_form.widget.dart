@@ -24,6 +24,7 @@ class LoginForm extends GetView<LoginController> {
       // Controller methods
       var emailChangeHandler = controller.emailChangeHandler;
       var validateCallback = controller.formValidateCallback;
+      var isDarkMode = controller.isDarkMode.value;
 
       return Form(
         key: formKey,
@@ -32,9 +33,18 @@ class LoginForm extends GetView<LoginController> {
             focusNode: emailFocusNode,
             autofocus: true,
             textInputAction: TextInputAction.next,
+            cursorColor: isDarkMode ? Colors.white : Colors.black,
             decoration: InputDecoration(
               labelText: keys.email.tr,
-              // labelStyle: ,
+
+              labelStyle:
+                  TextStyle(color: isDarkMode ? Colors.white : Colors.black),
+              border: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                      color: isDarkMode ? Colors.white : Colors.black)),
+              focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                      color: isDarkMode ? Colors.white : Colors.black)),
               // border: ,
               suffixIcon: IconButton(
                   onPressed: () {

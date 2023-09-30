@@ -32,7 +32,8 @@ class NextButton extends GetView<LoginController> {
             padding: EdgeInsets.all(15.r),
             child: Text(
               isEmailValid ? keys.next.tr : keys.enterEmail.tr,
-              style: const TextStyle(color: Colors.white),
+              style: TextStyle(
+                  color: Get.isDarkMode ? Colors.black : Colors.white),
             ),
           ),
         ),

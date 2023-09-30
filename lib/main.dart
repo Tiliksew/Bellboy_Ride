@@ -17,6 +17,7 @@ void main() {
         getPages: AppPages.routes,
         themeMode: ThemeMode.light,
         theme: lightThemeData,
+        darkTheme: darkThemeData,
         translations: Messages(),
         fallbackLocale: const Locale('en', 'US'),
         locale: const Locale('am', 'ET'),

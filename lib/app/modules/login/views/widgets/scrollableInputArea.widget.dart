@@ -12,6 +12,8 @@ class ScrollableInputArea extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     var toggleLanguage = controller.toggleLanguage;
+    // var toggleTheme = controller.toggleTheme;
+
     return SizedBox(
       height: 280.h,
       child: ListView(
@@ -19,6 +21,7 @@ class ScrollableInputArea extends GetView<LoginController> {
           SizedBox(
             height: 50.h,
           ),
+          // ThemeChangeButton(toggleTheme: toggleTheme),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -42,6 +45,28 @@ class ScrollableInputArea extends GetView<LoginController> {
           SizedBox(height: 20.h),
         ],
       ),
+    );
+  }
+}
+
+class ThemeChangeButton extends StatelessWidget {
+  const ThemeChangeButton({
+    super.key,
+    required this.toggleTheme,
+  });
+
+  final void Function() toggleTheme;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        IconButton(
+          onPressed: toggleTheme,
+          icon: const Icon(Icons.light_mode_rounded),
+        ),
+      ],
     );
   }
 }
