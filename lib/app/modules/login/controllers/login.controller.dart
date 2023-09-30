@@ -43,15 +43,20 @@ class LoginController extends GetxController {
           color: Colors.white,
         ),
         title: 'success',
-        message: 'Email: $email',
-        backgroundColor: Colors.green,
+        snackStyle: SnackStyle.GROUNDED,
+        padding: const EdgeInsets.all(5),
+        message: 'Logged in as $email',
+        // backgroundColor: const Color(0xFF8A2387),
+        backgroundColor: const Color(0xFF000000),
         forwardAnimationCurve: Curves.linear,
         reverseAnimationCurve: Curves.linear,
         animationDuration: const Duration(milliseconds: 200),
         duration: const Duration(seconds: 2),
       ));
+
       emailFocusNode.value.unfocus();
       Get.offAllNamed(Routes.HOME);
+      // Get.toNamed(Routes.HOME);
     }
   }
 

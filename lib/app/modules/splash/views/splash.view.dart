@@ -15,6 +15,8 @@ class SplashView extends GetView<SplashController> {
       // just for the purpose of elevating the controller inside this view
       print(controller.isLoading.value);
     }
+    // ignore: avoid_print
+    print(controller.isLoading.value);
 
     return Scaffold(
       body: SafeArea(

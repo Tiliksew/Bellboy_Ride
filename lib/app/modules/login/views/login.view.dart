@@ -17,19 +17,18 @@ class LoginView extends GetView<LoginController> {
       var emailFocusNode = controller.emailFocusNode.value;
       var emailController = controller.emailController.value;
       var formKey = controller.formKey.value;
-      var isLoading = controller.isLoading.value;
-
       var emailChangeHandler = controller.emailChangeHandler;
       var validateCallback = controller.formValidateCallback;
       var nextButtonHandler = isEmailValid ? () => loginHandler() : null;
       return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: SafeArea(
             child: Padding(
           padding: EdgeInsets.all(10.0.r),
           child: Column(
             children: [
               SizedBox(
-                height: 300.h,
+                height: 280.h,
                 child: ListView(
                   children: [
                     SizedBox(
@@ -85,44 +84,42 @@ class LoginView extends GetView<LoginController> {
               ),
               //
               Expanded(
-                child: SizedBox(
-                  child: ListView(
-                    shrinkWrap: true,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text(FIND_EMAIL, style: anchorTextStyle),
-                          const Text("|"),
-                          Text(
-                            FIND_PASSWORD,
-                            style: anchorTextStyle,
-                          )
-                        ],
-                      ),
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(FIND_EMAIL, style: anchorTextStyle),
+                        const Text("|"),
+                        Text(
+                          FIND_PASSWORD,
+                          style: anchorTextStyle,
+                        )
+                      ],
+                    ),
 
-                      // Space
-                      SizedBox(
-                        height: 15.h,
-                      ),
+                    // Space
+                    SizedBox(
+                      height: 15.h,
+                    ),
 
-                      // Next Button
-                      SizedBox(
-                        width: Get.width,
-                        child: ElevatedButton(
-                          style: nextButtonStyle(isEmailValid),
-                          onPressed: nextButtonHandler,
-                          child: Padding(
-                            padding: EdgeInsets.all(15.r),
-                            child: Text(
-                              isEmailValid ? NEXT : ENTER_EMAIL,
-                              style: const TextStyle(color: Colors.white),
-                            ),
+                    // Next Button
+                    SizedBox(
+                      width: Get.width,
+                      child: ElevatedButton(
+                        style: nextButtonStyle(isEmailValid),
+                        onPressed: nextButtonHandler,
+                        child: Padding(
+                          padding: EdgeInsets.all(15.r),
+                          child: Text(
+                            isEmailValid ? NEXT : ENTER_EMAIL,
+                            style: const TextStyle(color: Colors.white),
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               )
             ],
