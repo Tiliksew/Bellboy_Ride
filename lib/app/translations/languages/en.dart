@@ -12,6 +12,9 @@ class En {
         translation.next: 'Next',
         translation.success: 'Success',
         translation.loggedInAs: 'Logged in as',
-        translation.language: "EN"
+        translation.home: 'Home',
+        translation.go: 'Go',
+        translation.settings: 'Settings',
+        translation.language: 'EN'
       };
 }

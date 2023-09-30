@@ -9,3 +9,6 @@ const next = 'next';
 const success = 'success';
 const loggedInAs = 'loggedInAs';
 const language = 'language';
+const home = 'home';
+const go = 'go';
+const settings = 'settings';

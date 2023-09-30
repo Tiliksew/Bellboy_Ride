@@ -3,15 +3,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../translations/translation_keys.dart' as keys;
+
 class HomeController extends GetxController {
   var isLoading = false.obs;
   var selectedIndex = 0.obs;
-  final List<String> bottomNavBarItems = [
-    'Home',
-    'Go',
-    'Setting',
+  List<String> bottomNavBarItems = [
+    keys.home.tr,
+    keys.go.tr,
+    keys.settings.tr,
   ];
-  final List<IconData> bottomNavBarIcons = [
+  List<IconData> bottomNavBarIcons = [
     Icons.home,
     Icons.directions,
     Icons.local_florist_outlined,

@@ -12,6 +12,9 @@ class Am {
         translation.next: 'ይቀጥሉ',
         translation.success: 'ተሳክቷል',
         translation.loggedInAs: 'የገቡበት ኢ-ሜይል',
-        translation.language: "አማ"
+        translation.home: 'ዋና',
+        translation.go: 'ጉዞ',
+        translation.settings: 'ማስተካከያዎች',
+        translation.language: 'አማ'
       };
 }
