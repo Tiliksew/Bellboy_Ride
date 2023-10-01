@@ -12,18 +12,18 @@ class SplashView extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     if (kDebugMode) {
-      // just for the purpose of elevating the controller inside this view
       print(controller.isLoading.value);
     }
-    // ignore: avoid_print
-    print(controller.isLoading.value);
+
+    // just for the purpose of elevating the controller inside this view
+    controller.isLoading.value;
 
     return Scaffold(
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
+            Center(
               child: Image.asset(LOGO_IMAGE_LINK),
             ),
             SizedBox(

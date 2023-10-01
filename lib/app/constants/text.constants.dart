@@ -10,3 +10,4 @@ const WELCOME = "Welcome to Bellboy For Rider";
 const HOME = "Home";
 
 const LOGO_IMAGE_LINK = "assets/images/logo.png";
+const LOGO_IMAGE_LINK_SM = "assets/images/logo_sm.png";
