@@ -1,3 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '.../../../translations/translation_keys.dart' as keys;
+
 bool validateEmail(String email) {
   try {
     // Regular expression pattern for email validation
@@ -24,4 +29,23 @@ String? formValidateCallback(value) {
   } catch (e) {
     return null;
   }
+}
+
+showToast(email) {
+  Get.showSnackbar(GetSnackBar(
+    icon: const Icon(
+      Icons.check_circle_outline_rounded,
+      color: Colors.white,
+    ),
+    title: keys.success.tr,
+    snackStyle: SnackStyle.GROUNDED,
+    padding: const EdgeInsets.all(5),
+    message: '${keys.loggedInAs.tr} - $email',
+    // backgroundColor: const Color(0xFF8A2387),
+    backgroundColor: const Color(0xFF000000),
+    forwardAnimationCurve: Curves.linear,
+    reverseAnimationCurve: Curves.linear,
+    animationDuration: const Duration(milliseconds: 200),
+    duration: const Duration(seconds: 2),
+  ));
 }

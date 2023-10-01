@@ -5,7 +5,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../translations/translation_keys.dart' as keys;
 import '../../../helpers/utils.dart' as helpers;
 
 class LoginController extends GetxController {
@@ -42,23 +41,7 @@ class LoginController extends GetxController {
         print('Entered email: $email');
       }
 
-      Get.showSnackbar(GetSnackBar(
-        icon: const Icon(
-          Icons.check_circle_outline_rounded,
-          color: Colors.white,
-        ),
-        title: keys.success.tr,
-        snackStyle: SnackStyle.GROUNDED,
-        padding: const EdgeInsets.all(5),
-        message: '${keys.loggedInAs.tr} - $email',
-        // backgroundColor: const Color(0xFF8A2387),
-        backgroundColor: const Color(0xFF000000),
-        forwardAnimationCurve: Curves.linear,
-        reverseAnimationCurve: Curves.linear,
-        animationDuration: const Duration(milliseconds: 200),
-        duration: const Duration(seconds: 2),
-      ));
-
+      helpers.showToast(email);
       emailFocusNode.value.unfocus();
       Get.offAllNamed(Routes.HOME);
       // Get.toNamed(Routes.HOME);
