@@ -13,6 +13,7 @@ class HomeView extends GetView<HomeController> {
       var isLoading = controller.isLoading.isTrue;
       var bottomNavBarItems = controller.bottomNavBarItems;
       var bottomNavBarIcons = controller.bottomNavBarIcons;
+
       return Scaffold(
         appBar: AppBar(
           centerTitle: true,
